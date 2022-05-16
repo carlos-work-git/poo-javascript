@@ -1,12 +1,21 @@
 /**
- * No objeto ninja crie a propriedade shuriken, com uma quantidade de estrelas ninjas;
- * A cada método do "atirarProjetil" subtraia uma shuriken.
- * Caso os projeteis tenham acabado, o ninja não poderá atirar mais projeteis.
+ * Criar o inimigo do Naruto, o mesmo tem as propriedades vivo (boolean) e nome.
+ * O método atirar shuriken do exercício passado deve matar o inimigo.
+ * Sendo acertado pela shuriken, a propriedade vivo para para morto (false).
  */
 
  //console.log("teste");
+   
+function Inimigo(nome) {
+     this.nome = nome; 
+     this.vivo = true;
 
- function Ninja(nome, idade, estilo, nomeProjetil, quantidadeProjeteis) {
+     this.ultimaPalavra = () => console.log(`(${this.nome}) - Eu me vingarei!!!`);
+
+   }
+
+
+function Ninja(nome, idade, estilo, nomeProjetil, quantidadeProjeteis) {
      this.nome = nome; 
      this.idade = idade;
      this.estilo = estilo;
@@ -27,15 +36,27 @@
         this.quantidadeProjeteis = this.quantidadeProjeteis + quantidadeProjeteis;
      }
      
-     this.atirarProjetil = function () {
+     this.atirarProjetil = function (Inimigo) {
+
         if(this.quantidadeProjeteis!=0){
             console.log(`(${this.nome})- Toma essa ${this.nomeProjetil} !!!`);
             this.quantidadeProjeteis--;
             this.getQuantidadeProjeteis();
+
+            danzo.vivo=false;
+            //console.log(danzo);
+            
+            if(danzo.vivo===false){
+                danzo.ultimaPalavra();
+            };
+
         }else{
             console.log(`Os projeteis de ${this.nome} acabaram!!!`);
             return 0;
-        }            
+        }
+        
+
+
      };
 
      this.rendicao = function (){
@@ -49,43 +70,15 @@
     };
 
    };
- 
+
+   let danzo = new Inimigo("Danzo")
    let naruto= new Ninja("Naruto Uzumaki", 14, "Ninjutsu", "Shuriken",3);
- 
    let kakashi= new Ninja("Kakashi", 30, "Ninjutsu", "kunai",2);
 
    console.log(naruto);
-   console.log(kakashi);
-/*
-   for(let i = naruto.getQuantidadeProjeteis(); i >= 0; i--){
-    console.log("Teste "+ i);
-    };
-*/
-//    naruto.recarregarProjeteis(3);
-//    kakashi.recarregarProjeteis(2);
+   console.log(danzo);
+   console.log("");
 
-    //Fight
-    round=0;
-    while(naruto.getQuantidadeProjeteis()!==0 || kakashi.getQuantidadeProjeteis() !== 0){
-        round++;
-        console.log("");
-        console.log(`- Round ${round} -`)
-        naruto.atirarProjetil();
-        kakashi.atirarProjetil();
-
-        if(kakashi.getQuantidadeProjeteis()===0){
-            naruto.golpeFinal();
-            kakashi.rendicao();
-            naruto.vitoria();
-            break;
-        }
-
-        if(naruto.getQuantidadeProjeteis()===0){
-            kakashi.golpeFinal();
-            naruto.rendicao();
-            kakashi.vitoria();
-            break;
-        }
-    };
-
-
+   naruto.atirarProjetil(danzo);
+   console.log("");
+   console.log(danzo);
