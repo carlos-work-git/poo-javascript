@@ -4,6 +4,7 @@
  */
 
 console.log("teste");
+console.log(new Date());
 
 function Caminhao (portas,rodas,capacidadeCarga){
 
