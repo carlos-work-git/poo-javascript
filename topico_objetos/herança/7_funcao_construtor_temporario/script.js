@@ -1,5 +1,12 @@
 // "Interface" e "Sobreescrita"
 
+
+function extend (Filho, Pai){
+let F = function(){};
+F.prototype = Pai.prototype;
+Filho.prototype = new F(); //Função Construtor Temporário
+}
+
 function Veiculo(){}
 
 Veiculo.prototype.carenagem = 'aço';
@@ -20,10 +27,10 @@ Carro.prototype.pneus = 4;
 Trem.prototype = Veiculo.prototype; //Copiando o prototype de veículo para trem
 //Carro.prototype = Veiculo.prototype; //Copiando o prototype de veículo para carro
 
-//Construtor Temporário
-let F = function(){};
-F.prototype = Veiculo.prototype;
-Carro.prototype = new F(); // HERDANDO DO CONSTRUTOR TEMPORÁRIO
+//Construtor Temporário por função
+extend(Trem, Veiculo);
+extend(Carro,Veiculo);
+
 
 let trembala = new Trem('Trem Bala');
 
@@ -40,6 +47,14 @@ console.log(trem.carenagem);
 
 Carro.prototype.ligar = function(){ //Sobreescrevendo o método ligar() APENAS DO CONSTRUTOR TEMPORÁRIO
     console.log("O carro ligou");
+}
+
+Trem.prototype.ligar = function(){ //Sobreescrevendo o método ligar() APENAS DO CONSTRUTOR TEMPORÁRIO
+    console.log("O trem ligou - Piuuuiiiiiiii Piuuuiiiiiiii");
+}
+
+Trem.prototype.ligar = function(){ //Sobreescrevendo o método ligar() APENAS DO CONSTRUTOR TEMPORÁRIO
+    console.log("O trem ligou - Piuuuiiiiiiii Piuuuiiiiiiii");
 }
 
 //Nota-se agora que o método ligar foi sobreescrito apenas para quem herda de carro
