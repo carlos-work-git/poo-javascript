@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projeto To-Do List OOP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css" integrity="sha384-zIaWifL2YFF1qaDiAo0JFgsmasocJ/rqu7LKYH8CoBEXqGbb9eO+Xi3s6fQhgFWM" crossorigin="anonymous">
+  
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://stackpath.bootstrap.com/font-awesome/4.7.0/css/font-awesome.mim.css" rel="stylesheet" integrity="sha384-wvfxpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+<body>
+    <div id="main-container">
+        <div id="add-container">
+            <h2>Adicionar suas tarefas:</h2>
+            <form action="">
+                <input type="text" name="task" id="task" placeholder="O que você tem para fazer?" />
+                <button type="submit" id="add"><i class="fa fa-plus"></i></button>
+                <i class="fa-solid fa-file-check"></i>
+            </form>
+        </div>
+        <div id="task-container">
+            <h2>Veja suas tarefas:</h2>
+            <!-- TEMPLATE INÍCIO -->
+            <div class="task">
+            <!--   <i class="fa fa-check"></i> -->
+                <button type="submit" id="fa-check"> Feito </i> </button>
+                <span class="task-tittle">Título da tarefa</span>
+                <button type="submit" id="fa-trash"> Excluir</button>
+               <!-- <i class="fa fa-trash"></i> -->
+            </div>
+            <!-- TEMPLATE FIM-->
+            <p id="empty-tasks">Não há tarefas cadastradas.</p>
+        </div>
+    </div>
+    
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
